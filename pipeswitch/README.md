@@ -10,7 +10,7 @@ This folder contains code for PipeSwitch.
 - worker_terminate.py: Listen to the controller for signals to deactivate. Then it notifies the main thread of the worker to stop the current task.
 
 # Environment
-To support PipeSwitch, we add some plugins into PyTorch. Thus, before running this demo, you need to compile PyTorch as stated in [PyTorch plugin](https://github.com/netx-repo/PipeSwitch/tree/main/pytorch_plugin).
+To support PipeSwitch, we add some plugins into PyTorch. Thus, before running this demo, you need to compile PyTorch as stated in [PyTorch plugin](https://github.com/eamonmahon/PipeSwitch/tree/main/pytorch_plugin).
 Also, you need to add the path to the repo to `PYTHONPATH`.
 
 # Usage
