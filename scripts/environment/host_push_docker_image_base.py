@@ -21,7 +21,9 @@ def main():
 
         print ('%s> Load docker image for base' % server['id'])
         with RunRemoteRepo(server, 'dev') as rrr:
+            print("[EAMON][TEST] Testing if issue is happening right now:")
             rrr.run("bash ~/PipeSwitch/scripts/environment/server_load_docker_image_base.sh")
+            print("[EAMON][TEST] If nothing between last statement, issue is not there")
         print ('%s> Complete loading docker image for base' % server['id'])
 
         

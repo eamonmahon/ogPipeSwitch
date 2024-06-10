@@ -1,7 +1,11 @@
 # Get current work dir
 WORK_DIR=$(pwd)
-mkdir $WORK_DIR/tmp
 
+if [ ! -d "$WORK_DIR/tmp" ]; then
+    mkdir "$WORK_DIR/tmp"
+else
+    echo "Directory $WORK_DIR/tmp already exists."
+fi
 # Import global variables
 source $WORK_DIR/scripts/config/env.sh
 
