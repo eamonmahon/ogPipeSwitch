@@ -1,11 +1,18 @@
+# specifies the base image to use - pre-built PyTorch image with CUDA and cuDNN support
+# tagged at 1.3 suitable for GPU-accelerated tensor computations
 FROM pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
 
+# set working directory in the container to /workspace
 WORKDIR /workspace
+
+# version of pytorch used for development
 RUN git clone --branch v1.3.0 https://github.com/pytorch/pytorch.git
 
 WORKDIR /workspace/pytorch
 RUN git submodule sync
 RUN git submodule update --init --recursive
+
+# install dependencies
 RUN conda install -y \
     numpy \
     matplotlib \
@@ -18,8 +25,15 @@ RUN conda install -y \
     cmake \
     cffi \
     typing
+
+# install magma for cuda - necessary for GPU computations
 RUN conda install -c pytorch magma-cuda101
+
+# set env variable to path where Conda is installed
 ENV CMAKE_PREFIX_PATH=/opt/conda/
+
+# run the python script to install PyTorch in development mode
 RUN python setup.py develop
 
+# return to workspace directory
 WORKDIR /workspace

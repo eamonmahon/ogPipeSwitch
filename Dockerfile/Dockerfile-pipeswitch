@@ -2,10 +2,13 @@ FROM pipeswitch:base
 
 RUN pip install --upgrade pip
 RUN pip install scipy
+RUN pip install matplotlib
 RUN pip install transformers==2.5.0
 
 WORKDIR /workspace
-RUN git clone --branch dev https://github.com/baizh1994/PipeSwitch.git
+# RUN git clone --branch dev https://github.com/baizh1994/PipeSwitch.git
+RUN git clone --branch main https://github.com/eamonmahon/PipeSwitch.git
+
 
 ENV PYTHONPATH=/workspace/PipeSwitch
 
