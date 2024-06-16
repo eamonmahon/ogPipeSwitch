@@ -3,6 +3,7 @@ import os
 import torch
 
 import task.common as util
+from urllib.request import urlretrieve
 
 MODEL_NAME = 'resnet152'
 
@@ -14,9 +15,13 @@ def import_data(batch_size):
         import urllib
         url = 'https://github.com/pytorch/hub/raw/master/images/dog.jpg'
         try: 
-            urllib.URLopener().retrieve(url, filename)
-        except: 
-            urllib.request.urlretrieve(url, filename)
+            # urllib.URLopener().retrieve(url, filename)
+            urlretrieve(url, filename)
+
+        except Exception as e: 
+            # urllib.request.urlretrieve(url, filename)
+            print(f"An error occurred while downloading the image: {e}")
+            raise
 
     # sample execution (requires torchvision)
     from PIL import Image
@@ -37,6 +42,10 @@ def import_data(batch_size):
 
 def import_model():
     print("[EAMON][TEST] Testing if this gets updated with edit and save in code")
+    cache_dir = os.path.expanduser("~/.cache/torch/hub/refs/tags/")
+    if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
+        
     model = torch.hub.load('pytorch/vision:refs/tags/v0.4.2',
                            MODEL_NAME,
                            pretrained=True, skip_validation=True)
