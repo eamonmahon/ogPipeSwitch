@@ -45,10 +45,10 @@ def import_model():
     cache_dir = os.path.expanduser("~/.cache/torch/hub/refs/tags/")
     if not os.path.exists(cache_dir):
         os.makedirs(cache_dir)
-        
+
     model = torch.hub.load('pytorch/vision:refs/tags/v0.4.2',
                            MODEL_NAME,
-                           pretrained=True, skip_validation=True)
+                           pretrained=True)
     util.set_fullname(model, MODEL_NAME)
 
     return model
