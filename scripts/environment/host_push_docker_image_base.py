@@ -20,10 +20,8 @@ def main():
         print ('%s> Complete copying docker image for base' % server['id'])
 
         print ('%s> Load docker image for base' % server['id'])
-        print("[EAMON][TEST] Testing if issue is happening right now:")
         with RunRemoteRepo(server, 'dev') as rrr:
-            print("[EAMON][TEST] If nothing between last statement, issue is not there")
-            rrr.run("bash ~/eamon-PS/scripts/environment/server_load_docker_image_base.sh")
+            rrr.run("bash ~/eamons-PS/scripts/environment/server_load_docker_image_base.sh")
             
         print ('%s> Complete loading docker image for base' % server['id'])
 

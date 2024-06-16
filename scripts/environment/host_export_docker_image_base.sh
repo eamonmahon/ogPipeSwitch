@@ -6,7 +6,9 @@ if [ ! -d "$WORK_DIR/tmp" ]; then
 else
     echo "Directory $WORK_DIR/tmp already exists."
 fi
+
 # Import global variables
+# execute the commands in the env.sh script within the current environment
 source $WORK_DIR/scripts/config/env.sh
 
 # Export the base docker image as a tar file

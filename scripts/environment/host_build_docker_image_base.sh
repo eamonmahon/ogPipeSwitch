@@ -1,7 +1,10 @@
 # Get current work dir
 WORK_DIR=$(pwd)
+echo 'Current working directory:' $WORK_DIR
 
 # Import global variables
+# execute the commands in the env.sh script within the current environment
+echo 'Import global variables from env.sh'
 source $WORK_DIR/scripts/config/env.sh
 
 # Build the image bash, which compiles PyTorch from source
