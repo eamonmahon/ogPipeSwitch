@@ -11,7 +11,7 @@ def main():
 
     for server in server_list:
         print ('%s> Warm up the server' % server['id'])
-        with RunRemoteRepo(server, 'dev') as rrr:
+        with RunRemoteRepo(server, 'main') as rrr:
             rrr.run("bash ~/PipeSwitch/scripts/environment/server_run_warmup.sh")
         print ('%s> Complete warming up the server' % server['id'])
 

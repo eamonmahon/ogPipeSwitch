@@ -11,7 +11,7 @@ def main():
 
     for server in server_list:
         print ('%s> Build docker image for MPS' % server['id'])
-        with RunRemoteRepo(server, 'dev') as rrr:
+        with RunRemoteRepo(server, 'main') as rrr:
             rrr.run("bash ~/PipeSwitch/scripts/environment/server_build_docker_image_mps.sh")
         print ('%s> Complete building docker image for MPS' % server['id'])
 

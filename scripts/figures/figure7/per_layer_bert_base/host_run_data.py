@@ -8,7 +8,7 @@ def main():
 
     server_list = import_server_list(server_list_path)
 
-    with RunRemoteRepo(server_list[0], 'dev') as rrr:
+    with RunRemoteRepo(server_list[0], 'main') as rrr:
         rrr.run("bash ~/PipeSwitch/scripts/figures/figure7/per_layer_bert_base/remote_run_data.sh")
 
 if __name__ == '__main__':

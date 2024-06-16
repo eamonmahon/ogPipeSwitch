@@ -20,8 +20,8 @@ def main():
         print ('%s> Complete copying docker image for base' % server['id'])
 
         print ('%s> Load docker image for base' % server['id'])
-        with RunRemoteRepo(server, 'dev') as rrr:
-            rrr.run("bash ~/eamons-PS/scripts/environment/server_load_docker_image_base.sh")
+        with RunRemoteRepo(server, 'main') as rrr:
+            rrr.run("bash ~/PipeSwitch/scripts/environment/server_load_docker_image_base.sh")
             
         print ('%s> Complete loading docker image for base' % server['id'])
 
