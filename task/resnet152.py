@@ -46,7 +46,7 @@ def import_model():
     if not os.path.exists(cache_dir):
         os.makedirs(cache_dir)
 
-    model = torch.hub.load('pytorch/vision:refs/tags/v0.4.2',
+    model = torch.hub.load('pytorch/vision:v0.4.2',
                            MODEL_NAME,
                            pretrained=True)
     util.set_fullname(model, MODEL_NAME)
