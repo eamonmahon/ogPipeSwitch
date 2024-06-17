@@ -53,11 +53,11 @@ def import_data(batch_size):
 
 #     return model
     # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet152', pretrained=True)
-    def import_model():
-        model = torch.hub.load('pytorch/vision:v0.10.0', MODEL_NAME, pretrained=True)
-        util.set_fullname(model, MODEL_NAME)
+def import_model():
+    model = torch.hub.load('pytorch/vision:v0.10.0', MODEL_NAME, pretrained=True)
+    util.set_fullname(model, MODEL_NAME)
 
-        return model        
+    return model        
 
 # def import_model():
 #     # Ensure the cache directory exists
