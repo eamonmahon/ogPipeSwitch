@@ -13,12 +13,8 @@ RUN git clone --branch main https://github.com/eamonmahon/PipeSwitch.git
 
 
 ENV PYTHONPATH=/workspace/PipeSwitch
-# ENV PYTHONPATH=/workspace/eamons-PS
-
 
 WORKDIR /workspace/PipeSwitch
-# WORKDIR /workspace/eamons-PS
-RUN ls
 
 RUN python scripts/environment/container_download_models.py
 

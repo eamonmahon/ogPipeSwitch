@@ -1,7 +1,5 @@
 import os
-
 import torch
-
 import task.common as util
 from urllib.request import urlretrieve
 
@@ -12,14 +10,12 @@ def import_data(batch_size):
 
     # Download an example image from the pytorch website
     if not os.path.isfile(filename):
-        import urllib
         url = 'https://github.com/pytorch/hub/raw/master/images/dog.jpg'
         try: 
-            # urllib.URLopener().retrieve(url, filename)
+            print(f"Downloading image from {url} to {filename}")
             urlretrieve(url, filename)
 
         except Exception as e: 
-            # urllib.request.urlretrieve(url, filename)
             print(f"An error occurred while downloading the image: {e}")
             raise
 
@@ -46,10 +42,12 @@ def import_model():
     if not os.path.exists(cache_dir):
         os.makedirs(cache_dir)
 
-    model = torch.hub.load('pytorch/vision:v0.4.2',
-                           MODEL_NAME,
-                           pretrained=True)
-    util.set_fullname(model, MODEL_NAME)
+    try:
+        model = torch.hub.load('pytorch/vision:v0.4.2', MODEL_NAME, pretrained=True)
+        util.set_fullname(model, MODEL_NAME)
+    except Exception as e:
+        print(f"An error occurred while loading the model: {e}")
+        raise
 
     return model
 
