@@ -1,6 +1,9 @@
 import os
 import subprocess
 
+print("Current working directory:", os.getcwd())
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 
