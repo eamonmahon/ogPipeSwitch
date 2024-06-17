@@ -15,7 +15,6 @@ def main():
             print("------------------------- [EAMON][LOG] BUILDING DOCKER IMAGE FOR READY MODEL FROM PY SCRIPT")
             rrr.run("echo '------------------------- [EAMON][LOG] Current directory on the server:' && pwd")
             rrr.run("echo '------------------------- [EAMON][LOG] Current contents of directory on the server:' && ls")
-            rrr.run("echo '------------------------- [EAMON][LOG] Current contents of sub-directory on the server:' && ls eamons-PS")
             
             # rrr.run("bash ~/PipeSwitch/scripts/environment/server_build_docker_image_ready_model.sh")
             rrr.run("bash ~/eamons-PS/scripts/environment/server_build_docker_image_ready_model.sh")
