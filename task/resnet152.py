@@ -46,7 +46,7 @@ def import_data(batch_size):
 
 
 def import_model():
-    model = torch.hub.load('pytorch/vision[:0x00007f6499cf0ff8]',
+    model = torch.hub.load('pytorch/vision:v0.4.2',
                            MODEL_NAME,
                            pretrained=True)
     util.set_fullname(model, MODEL_NAME)
