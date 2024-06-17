@@ -53,7 +53,7 @@ def import_model():
         os.makedirs(cache_dir)
 
     try:
-        model = torch.hub.load('pytorch/vision:v0.4.2', MODEL_NAME, pretrained=True)
+        model = torch.hub.load('pytorch/vision:refs/tags/v0.4.2', MODEL_NAME, pretrained=True, force_reload=True, skip_validation=True)
         util.set_fullname(model, MODEL_NAME)
         return model
     except Exception as e:
