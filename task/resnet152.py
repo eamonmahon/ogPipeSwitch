@@ -37,17 +37,10 @@ def import_data(batch_size):
     return images, target
 
 def import_model():
-    print("[EAMON][TEST] Testing if this gets updated with edit and save in code")
-    cache_dir = os.path.expanduser("~/.cache/torch/hub/refs/tags/")
-    if not os.path.exists(cache_dir):
-        os.makedirs(cache_dir)
-
-    try:
-        model = torch.hub.load('pytorch/vision:v0.4.2', MODEL_NAME, pretrained=True)
-        util.set_fullname(model, MODEL_NAME)
-    except Exception as e:
-        print(f"An error occurred while loading the model: {e}")
-        raise
+    model = torch.hub.load('pytorch/vision:v0.4.2',
+                           MODEL_NAME,
+                           pretrained=True)
+    util.set_fullname(model, MODEL_NAME)
 
     return model
 
