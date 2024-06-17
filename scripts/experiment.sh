@@ -13,12 +13,12 @@ echo "host_build_docker_image_base.sh done"
 # bash scripts/environment/host_push_docker_image_base.sh
 # echo "host_push_docker_image_base.sh done"
 
-# # Load basic Docker image on servers
-# bash scripts/environment/host_build_docker_image_ready_model.sh
-# echo "host_build_docker_image_ready_model.sh done"
+# Load basic Docker image on servers
+bash scripts/environment/host_build_docker_image_ready_model.sh
+echo "host_build_docker_image_ready_model.sh done"
 
-bash scripts/environment/host_build_docker_image_pipeswitch.sh
-echo "host_build_docker_image_pipeswitch.sh done"
+# bash scripts/environment/host_build_docker_image_pipeswitch.sh
+# echo "host_build_docker_image_pipeswitch.sh done"
 
 # bash scripts/environment/host_build_docker_image_mps.sh
 # echo "host_build_docker_image_mps.sh done"

@@ -1,5 +1,6 @@
 # Get current work dir
-WORK_DIR=$(pwd)/PipeSwitch
+# WORK_DIR=$(pwd)/PipeSwitch
+WORK_DIR=$(pwd)/eamons-PS
 
 
 # Import global variables
