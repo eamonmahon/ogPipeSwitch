@@ -36,42 +36,14 @@ def import_data(batch_size):
     target = torch.tensor([0] * batch_size)
     return images, target
 
-# def import_model():
-#     model = torch.hub.load('pytorch/vision:v0.4.2',
-#                            MODEL_NAME,
-#                            pretrained=True)
-#     util.set_fullname(model, MODEL_NAME)
-
-#     return model
 
 
-# def import_model():
-#     model = torch.hub.load('pytorch/vision/tree:v0.4.2',
-#                            MODEL_NAME,
-#                            pretrained=True)
-#     util.set_fullname(model, MODEL_NAME)
-
-#     return model
-    # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet152', pretrained=True)
 def import_model():
     model = torch.hub.load('pytorch/vision:v0.10.0', MODEL_NAME, pretrained=True)
     util.set_fullname(model, MODEL_NAME)
 
-    return model        
+    return model
 
-# def import_model():
-#     # Ensure the cache directory exists
-#     cache_dir = os.path.expanduser('~/.cache/torch/hub/refs/tags')
-#     if not os.path.exists(cache_dir):
-#         os.makedirs(cache_dir)
-
-#     try:
-#         model = torch.hub.load('pytorch/vision:refs/tags/v0.4.2', MODEL_NAME, pretrained=True, force_reload=True, skip_validation=True)
-#         util.set_fullname(model, MODEL_NAME)
-#         return model
-#     except Exception as e:
-#         print(f"An error occurred: {e}")
-#         raise
 
 def partition_model(model):
     group_list = []
