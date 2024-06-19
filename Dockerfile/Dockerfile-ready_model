@@ -2,6 +2,9 @@
 FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
 
 WORKDIR /workspace
+
+# RUN apt-get update && apt-get install -y git
+
 RUN pip install --upgrade pip
 RUN pip install scipy
 RUN pip install matplotlib

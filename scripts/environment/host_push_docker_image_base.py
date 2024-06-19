@@ -5,9 +5,9 @@ from scripts.common.util import RunRemoteRepo, import_server_list
 
 def main():
     server_list_path = sys.argv[1]
-    image_path = sys.argv[2]
-    print (server_list_path)
-    print (image_path)
+    image_path = sys.argv[2] # tar image path
+
+    print("Pushing image " + image_path + " to servers specified from: " + server_list_path)
 
     server_list = import_server_list(server_list_path)
 
@@ -15,15 +15,16 @@ def main():
         src = image_path
         dst = server['id'] + ':~/'
         
-        print ('%s> Copy docker image for base' % server['id'])
+        # copy the tar file (image) from the host to the servers
+        print ('%s> Copy base docker image' % server['id'])
         os.system('scp %s %s' % (src, dst))
-        print ('%s> Complete copying docker image for base' % server['id'])
+        print ('%s> Completed copying base docker image to server.' % server['id'])
 
-        print ('%s> Load docker image for base' % server['id'])
+        print ('%s> Load base docker image on server.' % server['id'])
         with RunRemoteRepo(server, 'main') as rrr:
-            rrr.run("bash ~/PipeSwitch/scripts/environment/server_load_docker_image_base.sh")
+            rrr.run("bash ~/eamons-PS/scripts/environment/server_load_docker_image_base.sh")
             
-        print ('%s> Complete loading docker image for base' % server['id'])
+        print ('%s> Complete loading base docker image' % server['id'])
 
         
 

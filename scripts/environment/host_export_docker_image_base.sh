@@ -4,7 +4,7 @@ WORK_DIR=$(pwd)
 if [ ! -d "$WORK_DIR/tmp" ]; then
     mkdir "$WORK_DIR/tmp"
 else
-    echo "Directory $WORK_DIR/tmp already exists."
+    echo "Using previously made $WORK_DIR/tmp directory."
 fi
 
 # Import global variables
@@ -12,7 +12,8 @@ fi
 source $WORK_DIR/scripts/config/env.sh
 
 # Export the base docker image as a tar file
-echo 'Export docker image:' $DOCKER_IMAGE_BASE_TAG
+# -o specifies output file path and name
+echo 'Exporting docker image:' $DOCKER_IMAGE_BASE_TAG
 docker save -o $WORK_DIR/tmp/$DOCKER_IMAGE_BASE_FILENAME $DOCKER_IMAGE_BASE_TAG
-echo 'Complete exporting docker image:' $DOCKER_IMAGE_BASE_FILENAME
+echo 'Completed exporting of docker image:' $DOCKER_IMAGE_BASE_FILENAME
 echo
