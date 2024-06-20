@@ -1,5 +1,5 @@
 # Get current work dir
-WORK_DIR=$(pwd)/eamon-PS
+WORK_DIR=$(pwd)/eamons-PS
 
 # Import global variables
 source $WORK_DIR/scripts/config/env.sh
