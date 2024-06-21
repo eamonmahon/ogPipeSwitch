@@ -1,10 +1,14 @@
 # ##############################
 # ### Create the environment ###
 
-# # Build basic Docker image on host
+# Build basic Docker image on host
 bash scripts/environment/host_build_docker_image_base.sh
 
 bash scripts/environment/local_build_docker_image_ready_model.sh
+
+bash scripts/environment/local_build_docker_image_pipeswitch.sh
+
+bash scripts/environment/local_build_docker_image_mps.sh
 
 # ### Create the environment END ###
 # ##################################

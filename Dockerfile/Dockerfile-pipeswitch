@@ -6,23 +6,19 @@ RUN pip install matplotlib
 RUN pip install transformers==2.5.0
 
 WORKDIR /workspace
-# RUN git clone --branch dev https://github.com/baizh1994/PipeSwitch.git
-RUN git clone --branch main https://github.com/eamonmahon/PipeSwitch.git
 
+COPY . /workspace
 
-ENV PYTHONPATH=/workspace/PipeSwitch
+ENV PYTHONPATH=/workspace
 
-WORKDIR /workspace/PipeSwitch
+WORKDIR /workspace
 RUN python scripts/environment/container_download_models.py
 
-WORKDIR /workspace/PipeSwitch/pytorch_plugin
+WORKDIR /workspace/pytorch_plugin
 RUN bash overwrite.sh /workspace/pytorch/
 
 WORKDIR /workspace/pytorch
 ENV CMAKE_PREFIX_PATH=/opt/conda/
 RUN python setup.py install
-
-WORKDIR /workspace
-RUN rm -rf PipeSwitch
 
 WORKDIR /workspace
