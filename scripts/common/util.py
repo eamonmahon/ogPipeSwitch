@@ -32,6 +32,25 @@ class RunDocker:
     def run(self, cmd):
         os.system('docker exec -w /workspace %s %s' % (self.name, cmd))
 
+class RunLocalDocker:
+    def __init__(self, image):
+        self.image = image
+        self.name = 'pipeswitch'
+
+    def __enter__(self):
+        # Start a Docker container in detached mode with GPU support
+        os.system(f'docker run --name {self.name} --rm -it -d --gpus all -w /workspace {self.image} bash')
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Stop the Docker container when exiting the context
+        os.system(f'docker stop {self.name}')
+
+    def run(self, cmd):
+        # Execute a command in the Docker container
+        os.system(f'docker exec -w /workspace {self.name} {cmd}')
+
+
 def import_server_list(path):
     server_list = []
     with open(path) as f:
