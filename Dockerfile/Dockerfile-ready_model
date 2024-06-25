@@ -1,5 +1,5 @@
 # FROM pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
-FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
+FROM pipeswitch:base
 
 WORKDIR /workspace
 
@@ -9,6 +9,7 @@ RUN pip install --upgrade pip
 RUN pip install scipy
 RUN pip install matplotlib
 RUN pip install transformers==2.5.0
+RUN mkdir -p /root/.cache/torch/hub/refs/tags && chmod -R 777 /root/.cache/torch/hub/refs/tags
 
 WORKDIR /workspace
 # RUN git clone --branch dev https://github.com/baizh1994/PipeSwitch.git

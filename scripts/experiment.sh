@@ -7,22 +7,22 @@ echo "host_build_docker_image_base.sh done"
 
 # Export basic Docker image on host
 # This creates a tar file for the base image to copy over to servers
-# bash scripts/environment/host_export_docker_image_base.sh
-# echo "host_export_docker_image_base.sh done"
+bash scripts/environment/host_export_docker_image_base.sh
+echo "host_export_docker_image_base.sh done"
 
 # # Copy basic Docker image (tar file) to servers and loads it in server docker engines
-# bash scripts/environment/host_push_docker_image_base.sh
-# echo "host_push_docker_image_base.sh done"
+bash scripts/environment/host_push_docker_image_base.sh
+echo "host_push_docker_image_base.sh done"
 
 # Load basic Docker image on servers
 bash scripts/environment/host_build_docker_image_ready_model.sh
 echo "host_build_docker_image_ready_model.sh done"
 
-# bash scripts/environment/host_build_docker_image_pipeswitch.sh
-# echo "host_build_docker_image_pipeswitch.sh done"
+bash scripts/environment/host_build_docker_image_pipeswitch.sh
+echo "host_build_docker_image_pipeswitch.sh done"
 
-# bash scripts/environment/host_build_docker_image_mps.sh
-# echo "host_build_docker_image_mps.sh done"
+bash scripts/environment/host_build_docker_image_mps.sh
+echo "host_build_docker_image_mps.sh done"
 
 
 # ### Create the environment END ###
